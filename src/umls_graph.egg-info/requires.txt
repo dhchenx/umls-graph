@@ -1,0 +1,7 @@
+pymysql
+
+[dev]
+check-manifest
+
+[test]
+coverage

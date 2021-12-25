@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: umls-graph
+Version: 0.0.2
+Summary: Build medical knowledge graph based on Unified Medical Language System (UMLS)
+Home-page: https://github.com/dhchenx/umls-graph
+Author: Donghua Chen
+Author-email: douglaschan@126.com
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/dhchenx/umls-graph/issues
+Keywords: unified medical language system,UMLS,knowledge graph,medical knowledge,medical concept,neo4j
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6, <4
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: test
+License-File: LICENSE.txt
+
+# UMLS-Graph
+
+Build a medical knowledge graph based on Unified Language Medical System (UMLS)
+
+## Requisite
+
+Install MySQL Server 5.6 and import UMLS data into MySQL database. Please refer to [UMLS](https://www.nlm.nih.gov/research/umls/index.html) websites on how to install the UMLS database. 
+
+## Installation
+
+```pip
+pip install umls-graph
+```
+
+## Let Codes Speak
+
+```python
+from umls_graph.dataset import make_umls_all
+
+# MySQL database information
+mysql_info = {}
+mysql_info["database"] = "umls"
+mysql_info["username"] = "root"
+mysql_info["password"] = "{not gonna tell you}"
+mysql_info["hostname"] = "localhost"
+
+# read all UMLS table and save them to csv formatted files in a specific folder
+make_umls_all(mysql_info=mysql_info,save_folder="umls_datasets")
+
+```
+
+## License
+The `umls-graph` project is provided by [Donghua Chen](https://github.com/dhchenx/umls-graph). 
+
+NOTE: This project DOES NOT provide the UMLS data download due to the license issue. In addition, the processed data are not verified in actual clinical use.  Please be response for any UMLS data use. 
+
